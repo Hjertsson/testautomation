@@ -37,10 +37,13 @@ namespace SeleniumTestProject
             showAll.Click();
             //Assert.AreEqual(By.XPath("/html/body/table/tbody/tr[7]/td[3]", 6);
             IWebElement resultMain = driver.FindElement(By.XPath("/html/body/table/tbody/tr[7]/td[3]"));
-            string text = resultMain.Text;
 
-            Console.WriteLine("--------- " + text + ".");
-            //Assert.AreEqual(resultMain, "6");
+            int resultInt = int.Parse(resultMain.Text);
+            //Console.WriteLine(text == 6)      
+           
+            //Console.WriteLine("--------- " + text + ".");
+
+            Assert.AreEqual(resultInt, 6);
 
 
             //Assert.That(popUpAdress.Text, Is.EqualTo("HELLO@INCEPTIVE.SE"));
