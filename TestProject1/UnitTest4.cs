@@ -10,10 +10,10 @@ using OpenQA.Selenium.Support.UI;
 namespace SeleniumTestProject
 {
     [TestClass]
-    public class SeleniumTest2
+    public class SeleniumTest4
     {
         [TestMethod]
-        public void TestMethod2()
+        public void TestMethod4()
         {
             ChromeDriver driver = new ChromeDriver();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
@@ -21,35 +21,23 @@ namespace SeleniumTestProject
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("http://localhost:1700/");
 
-            IWebElement firstName = driver.FindElement(By.XPath("/html/body/form[1]/input[1]"));
-            firstName.SendKeys("Gustav");
-            IWebElement lastName = driver.FindElement(By.XPath("/html/body/form[1]/input[2]"));
-            lastName.SendKeys("Hjertsson");
-            IWebElement customerID = driver.FindElement(By.XPath("/html/body/form[1]/input[3]"));
-            customerID.SendKeys("6");
-            IWebElement phoneNr = driver.FindElement(By.XPath("/html/body/form[1]/input[4]"));
+            IWebElement firstName = driver.FindElement(By.XPath("/html/body/form[4]/input[1]"));
+            firstName.SendKeys("Edited");
+            IWebElement lastName = driver.FindElement(By.XPath("/html/body/form[4]/input[2]"));
+            lastName.SendKeys("Edited");
+            IWebElement customerID = driver.FindElement(By.XPath("/html/body/form[4]/input[3]"));
+            customerID.SendKeys("5");
+            IWebElement phoneNr = driver.FindElement(By.XPath("/html/body/form[4]/input[4]"));
             phoneNr.SendKeys("123456789");
-            IWebElement commit = driver.FindElement(By.XPath("/html/body/form[1]/input[5]"));
-            commit.Click();
-            IWebElement returnMain3 = driver.FindElement(By.XPath("/html/body/form/input"));
-            returnMain3.Click();
+            IWebElement save = driver.FindElement(By.XPath("/html/body/form[4]/input[5]"));
+            save.Click();
+            IWebElement returnFront = driver.FindElement(By.XPath("/html/body/form/input"));
+            returnFront.Click();
             IWebElement showAll = driver.FindElement(By.XPath("/html/body/ul/li/a"));
             showAll.Click();
-            //Assert.AreEqual(By.XPath("/html/body/table/tbody/tr[7]/td[3]", 6);
-            IWebElement resultMain = driver.FindElement(By.XPath("/html/body/table/tbody/tr[7]/td[3]"));
-            string text = resultMain.Text;
-
-            Console.WriteLine("--------- " + text + ".");
-            Assert.AreEqual(resultMain.ToString(), "6");
 
 
-            //Assert.That(popUpAdress.Text, Is.EqualTo("HELLO@INCEPTIVE.SE"));
-
-
-            //IWebElement resultMain = driver.FindElement(By.XPath("/html/body/table/tbody/tr[7]"));
-            //Assert.IsNotNull(resultMain);
-            //Assert.IsNull(resultMain);
-
+            //Check if the customer with customerID has been edited
 
 
             driver.Close();
