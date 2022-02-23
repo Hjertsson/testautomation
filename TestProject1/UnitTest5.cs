@@ -45,9 +45,13 @@ namespace SeleniumTestProject
                 commit.Click();
                 IWebElement returnFront2 = driver.FindElement(By.XPath("/html/body/form/input"));
                 returnFront2.Click();
-
             };
 
+            IWebElement findLast = driver.FindElement(By.XPath("/html/body/table/tbody/tr[26]/td[3]"));
+
+            int lastInt = int.Parse(findLast.Text);
+
+            Assert.AreEqual(lastInt, 25);
 
             //check that 25 customer has been added
 

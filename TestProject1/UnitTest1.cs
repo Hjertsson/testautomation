@@ -26,6 +26,10 @@ namespace SeleniumTestProject
             // TEST 1
             IWebElement show = driver.FindElement(By.XPath("/html/body/ul/li/a"));
             show.Click();
+
+            
+
+
             IWebElement returnMain = driver.FindElement(By.XPath("/html/body/form/input"));
             returnMain.Click();
             IWebElement remove = driver.FindElement(By.XPath("/html/body/form[5]/input"));
@@ -35,6 +39,10 @@ namespace SeleniumTestProject
             IWebElement show2 = driver.FindElement(By.XPath("/html/body/ul/li/a"));
             show2.Click();
             IWebElement table = driver.FindElement(By.XPath("/html/body/table/tbody"));
+
+
+            Assert.IsNull(driver.FindElement(By.XPath("/html/body/table/tbody/tr[2]")));
+            
 
             //var tableTest = driver.FindElements(By.XPath("/html/body/table/tbody"));
 
