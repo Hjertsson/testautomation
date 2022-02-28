@@ -46,13 +46,11 @@ namespace SeleniumTestProject
             IWebElement showAll = driver.FindElement(By.XPath("/html/body/ul/li/a"));
             showAll.Click();
 
-            IWebElement nameCheck = driver.FindElement(By.XPath("/html/body/table/tbody/tr[7]/td[1]"));
-
-            Console.WriteLine("--------- " + nameCheck + ".");
+            IWebElement nameCheck = driver.FindElement(By.XPath("/html/body/table/tbody/tr[7]/td[1]"));          
 
             Assert.AreNotEqual(nameCheck, defaultTest);
 
-            //Check if the customer with customerID has been edited
+            
 
 
             driver.Close();

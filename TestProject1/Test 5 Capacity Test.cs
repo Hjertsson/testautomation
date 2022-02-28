@@ -24,7 +24,7 @@ namespace SeleniumTestProject
             string[] customerIDArray = new string[] {"1", "2", "3", "4", "5", "6", "7", "8",
                 "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"};
 
-           
+
 
             IWebElement removeAll = driver.FindElement(By.XPath("/html/body/form[5]/input"));
             removeAll.Click();
@@ -46,6 +46,11 @@ namespace SeleniumTestProject
                 IWebElement returnFront2 = driver.FindElement(By.XPath("/html/body/form/input"));
                 returnFront2.Click();
             };
+
+
+            IWebElement show = driver.FindElement(By.XPath("/html/body/ul/li/a"));
+            show.Click();
+
 
             IWebElement findLast = driver.FindElement(By.XPath("/html/body/table/tbody/tr[26]/td[3]"));
 
