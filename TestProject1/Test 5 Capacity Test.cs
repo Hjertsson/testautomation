@@ -51,15 +51,11 @@ namespace SeleniumTestProject
             IWebElement show = driver.FindElement(By.XPath("/html/body/ul/li/a"));
             show.Click();
 
-
             IWebElement findLast = driver.FindElement(By.XPath("/html/body/table/tbody/tr[26]/td[3]"));
 
             int lastInt = int.Parse(findLast.Text);
 
             Assert.AreEqual(lastInt, 25);
-
-            //check that 25 customer has been added
-
 
 
             driver.Close();

@@ -8,6 +8,7 @@ using SeleniumExtras.WaitHelpers;
 using OpenQA.Selenium.Support.UI;
 
 
+
 namespace SeleniumTestProject
 {
     [TestClass]
@@ -26,6 +27,17 @@ namespace SeleniumTestProject
             IWebElement show = driver.FindElement(By.XPath("/html/body/ul/li/a"));
             show.Click();
 
+            IReadOnlyCollection<IWebElement> test3 = driver.FindElements(By.XPath("/html/body/table/tbody/tr"));
+
+            Console.WriteLine("Före    " + test3.Count + ".");
+
+            //IWebElement defaultRow1 = driver.FindElement(By.XPath("/html/body/table/tbody/tr[2]"));
+            //IWebElement defaultRow2 = driver.FindElement(By.XPath("/html/body/table/tbody/tr[3]"));
+            //IWebElement defaultRow3 = driver.FindElement(By.XPath("/html/body/table/tbody/tr[4]"));
+            //IWebElement defaultRow4 = driver.FindElement(By.XPath("/html/body/table/tbody/tr[5]"));
+            //IWebElement defaultRow5 = driver.FindElement(By.XPath("/html/body/table/tbody/tr[6]"));
+
+
             IWebElement returnMain = driver.FindElement(By.XPath("/html/body/form/input"));
             returnMain.Click();
             IWebElement remove = driver.FindElement(By.XPath("/html/body/form[5]/input"));
@@ -34,53 +46,37 @@ namespace SeleniumTestProject
             returnMain2.Click();
             IWebElement show2 = driver.FindElement(By.XPath("/html/body/ul/li/a"));
             show2.Click();
-            IWebElement table = driver.FindElement(By.XPath("/html/body/table/tbody"));
 
+            //IWebElement test = driver.FindElement(By.XPath("/html/body/table/tbody/tr[2]"));
 
-            Assert.IsNull(driver.FindElement(By.XPath("/html/body/table/tbody/tr[2]")));
+            //IWebElement iguess = driver.FindElements(By.XPath("/html/body/table/tbody"));
+
+            //List<IWebElement> listOfElements = driver.FindElements(By.XPath("/html/body/table/tbody"));
+
+            IReadOnlyCollection<IWebElement> test2 = driver.FindElements(By.XPath("/html/body/table/tbody/tr"));
+
             
 
-            //var tableTest = driver.FindElements(By.XPath("/html/body/table/tbody"));
+            //Console.WriteLine("Före    " + test3.Count + ".");
+
+            Console.WriteLine("Efter   " + test2.Count + ".");
+
+            Assert.AreEqual(test2.Count, 1);
+
+            //IWebElement table = driver.FindElement(By.XPath("/html/body/table/tbody"));
+
+            //Assert.IsNull(driver.FindElement(By.XPath("/html/body/table/tbody/tr[2]")));
+
+            //Assert.Fail(driver.FindElement(By.XPath("/html/body/table/tbody/tr[2]")).Text);
+
+            //Assert.IsNull(driver.FindElement(By.XPath("/html/body/table/tbody/tr[2]")));
 
 
-
-            //IList<IWebElement> please = driver.FindElement(By.XPath("/html/body/table/tbody"));
-
-            //Assert.IsNull("tableTest");
-
-
-            //IWebElement myTable = driver.FindElement(By.TagName("table"));
-            //List<IWebElement> tableRows = myTable.FindElements(By.TagName("td"));
 
 
 
             driver.Close();
             driver.Quit();
-
-            // Olika typer av metoder
-
-            /* 
-
-            Exempel:
-            (Hitta något med hjälp av LinkText)
-            IWebElement utbKnapp = driver.FindElement(By.LinkText("Våra utbildningar")); // Steg 1 vi pekar ut knappen med länktexten "Våra utbildningar" och ger den namnet utbKnapp
-            utbKnapp.Click(); // Steg 2 vi klickar på knappen som vi gjorde i tidigare steg
-            ----OLIKA LOCATORS----
-            (Du behöver byta namnet "ElementetsNamn")
-            IWebElement ElementetsNamn = driver.FindElement(By.ClassName("Class-namnet skrivs här"));
-            IWebElement ElementetsNamn = driver.FindElement(By.CssSelector("CSS-selectorn skrivs här"));
-            IWebElement ElementetsNamn = driver.FindElement(By.Id("ID:t skrivs här"));
-            IWebElement ElementetsNamn = driver.FindElement(By.LinkText("Länktexten skrivs här"));
-            IWebElement ElementetsNamn = driver.FindElement(By.Name("Namnet skrivs här"));
-            IWebElement ElementetsNamn = driver.FindElement(By.PartialLinkText("Del av länktexten skrivs här"));
-            IWebElement ElementetsNamn = driver.FindElement(By.TagName("Taggnamnet skrivs här"));
-            IWebElement ElementetsNamn = driver.FindElement(By.XPath(string xpath));
-            ----OLIKA KOMMANDON----
-            element.Click();
-            ----OLIKA ASSERTS----
-            EXEMPEL: 
-            Assert.AreEqual("1,5 år", ElementetsNamn.Text); // frågar om det stämmer att texten säger 1,5 år
-            */
 
         }
     }
