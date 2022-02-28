@@ -27,10 +27,7 @@ namespace SeleniumTestProject
             IWebElement defaultTest = driver.FindElement(By.XPath("/html/body/table/tbody/tr[3]/td[3]"));
 
             IWebElement returnMain = driver.FindElement(By.XPath("/html/body/form/input"));
-            returnMain.Click();
-
-            
-            
+            returnMain.Click();                   
 
             IWebElement customerID = driver.FindElement(By.XPath("/html/body/form[3]/input[1]"));
             customerID.SendKeys("2");
@@ -41,18 +38,10 @@ namespace SeleniumTestProject
             IWebElement showAll = driver.FindElement(By.XPath("/html/body/ul/li/a"));
             showAll.Click();
 
-            //Check if customer with customer ID nr 2 is removed
 
             IWebElement resultMain = driver.FindElement(By.XPath("/html/body/table/tbody/tr[3]/td[3]"));
-            Console.WriteLine("--------- " + resultMain + ".");
 
-            //int intResult = int.Parse(resultMain.Text);
 
-            //Console.WriteLine("--------- " + intResult + ".");
-
-            //Assert.AreEqual(resultMain.Text, 0);
-            //Assert.AreNotEqual(resultMain.Text, 2);
-            //Assert.Fail(int.Parse(resultMain.Text));
             Assert.AreNotSame(defaultTest, resultMain);
 
             driver.Close();

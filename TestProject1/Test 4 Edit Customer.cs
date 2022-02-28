@@ -21,6 +21,16 @@ namespace SeleniumTestProject
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("http://localhost:1700/");
 
+            IWebElement show = driver.FindElement(By.XPath("/html/body/ul/li/a"));
+            show.Click();
+
+            IWebElement defaultTest = driver.FindElement(By.XPath("/html/body/table/tbody/tr[6]/td[1]"));
+
+            IWebElement returnMain = driver.FindElement(By.XPath("/html/body/form/input"));
+            returnMain.Click();
+
+
+
             IWebElement firstName = driver.FindElement(By.XPath("/html/body/form[4]/input[1]"));
             firstName.SendKeys("Edited");
             IWebElement lastName = driver.FindElement(By.XPath("/html/body/form[4]/input[2]"));
@@ -36,6 +46,11 @@ namespace SeleniumTestProject
             IWebElement showAll = driver.FindElement(By.XPath("/html/body/ul/li/a"));
             showAll.Click();
 
+            IWebElement nameCheck = driver.FindElement(By.XPath("/html/body/table/tbody/tr[7]/td[1]"));
+
+            Console.WriteLine("--------- " + nameCheck + ".");
+
+            Assert.AreNotEqual(nameCheck, defaultTest);
 
             //Check if the customer with customerID has been edited
 
