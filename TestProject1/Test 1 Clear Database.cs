@@ -22,13 +22,9 @@ namespace SeleniumTestProject
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("http://localhost:1700/");
            
-
-            // TEST 1
+           
             IWebElement show = driver.FindElement(By.XPath("/html/body/ul/li/a"));
             show.Click();
-
-            
-
 
             IWebElement returnMain = driver.FindElement(By.XPath("/html/body/form/input"));
             returnMain.Click();
